@@ -1,0 +1,14 @@
+class Example {
+    constructor(htmlElement) {
+        this.htmlElement = htmlElement
+        this.htmlElement.innerHtml = "<h1>It's alive!</h1>"
+
+        this.htmlElement.addEventListener("click", this.handleClick)
+    }
+
+    handleClick() {
+        this.htmlElement.children[0].innerText = "Ouch"
+    }
+}
+
+export default Example;
