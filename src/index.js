@@ -1,9 +1,8 @@
 import Example from "./scripts/example"
-
+import Histogram from "./scripts/histogram"
 
 document.addEventListener("DOMContentLoaded", () => {
+    let testHistogram = new Histogram()
     console.log("Hello world")
-
-    const main = document.getElementById('main')
-    new Example(main)
+    console.log(testHistogram.dataPoints)
 })
