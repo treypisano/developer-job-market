@@ -8,6 +8,7 @@ class Example {
         this.htmlElement.addEventListener("click", this.handleClick)
     }
 
+
     handleClick() {
         this.htmlElement.children[0].innerText = "Ouch"
     }
