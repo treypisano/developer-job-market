@@ -30,10 +30,8 @@ export function fetchHistoData(url) {
 
 export function makeChart(data) {
     const numJobs = Object.values(data.histogram)
-    // const salary = Object.keys(data.histogram)
-    // debugger    
+ 
     const restructuredData = restructureData(data)
-    
     const margin = {top: 30, right: 30, bottom: 70, left: 60},
         width = 460 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
@@ -65,8 +63,6 @@ export function makeChart(data) {
     svg.append("g")
           .call(d3.axisLeft(y));
     
-    // debugger
-    // console.log(restructureData
     svg.selectAll("mybar")
         .data(restructuredData)
         .enter()
@@ -78,8 +74,7 @@ export function makeChart(data) {
             .attr("fill", "#69b3a2")
 }
 
-// example obj should be data = [{salary: 10000, numJobs: 120}, {salary: 20000, numJobs: 142}]
-function restructureData(data) {
+function restructureData(data) { // Convert API call to format d3 can parse
     const numJobs = Object.values(data.histogram)
     const salary = Object.keys(data.histogram)
     let newArr = []
