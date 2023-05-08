@@ -1,4 +1,3 @@
-
 export default class NavBar {
 
     constructor (navLink) {
@@ -6,7 +5,8 @@ export default class NavBar {
         navLink.addEventListener("click", this.clicked)
     }
 
-    clicked() {
-        console.log("ouch, ive been clicked!")
+    clicked(event) {
+        console.log(event.target.innerText)
+        // console.log(navLink)
     }
 }
