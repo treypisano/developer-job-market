@@ -4,7 +4,27 @@ let testUrl = "http://api.adzuna.com/v1/api/jobs/gb/histogram?app_id=d536b8fb&ap
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("hello world")
-    Histogram.fetchHistoData(testUrl)
+    Histogram.makeChart(testData)
 })
 
 
+const testData = {
+    "__CLASS__": "Adzuna::API::Response::SalaryHistogram",
+    "location": {
+        "display_name": "London, UK",
+        "__CLASS__": "Adzuna::API::Response::Location",
+        "area": [
+            "UK",
+            "London"
+        ]
+    },
+    "histogram": {
+        "10000": 1,
+        "20000": 111,
+        "30000": 121,
+        "40000": 58,
+        "50000": 24,
+        "60000": 34,
+        "70000": 110
+    }
+}

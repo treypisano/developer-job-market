@@ -18,7 +18,7 @@ export function fetchHistoData(url) {
             }
         })  
         .then((data) => {
-            console.log(restructureData(data))
+            console.log((data))
             makeChart(data)
         })
         .catch((error) => {
@@ -26,9 +26,11 @@ export function fetchHistoData(url) {
         })
 }
 
-function makeChart(data) {
+
+
+export function makeChart(data) {
     const numJobs = Object.values(data.histogram)
-    const salary = Object.keys(data.histogram)
+    // const salary = Object.keys(data.histogram)
     // debugger    
     const restructuredData = restructureData(data)
     
@@ -46,8 +48,8 @@ function makeChart(data) {
 
     let x = d3.scaleBand()
         .range([0, width])
-        .domain(salary)
-        .padding(0.2)
+        .domain(restructuredData.map(function(d) { return d.salary; }))
+        .padding(0.1)
     
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -57,13 +59,14 @@ function makeChart(data) {
           .style("text-anchor", "end");
 
     let y = d3.scaleLinear()
-          .domain([0, Math.max(...numJobs)])
+          .domain([0, Math.max(...numJobs) ])
           .range([ height, 0]);
-        svg.append("g")
+    
+    svg.append("g")
           .call(d3.axisLeft(y));
     
     // debugger
-    // console.log(restructureData)
+    // console.log(restructureData
     svg.selectAll("mybar")
         .data(restructuredData)
         .enter()

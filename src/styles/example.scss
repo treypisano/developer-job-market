@@ -2,7 +2,42 @@
 
 $color: purple;
 
-#main > h1 {
-    border: 4px solid salmon;
-    padding: 20px;
+h1 {
+    color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+
+div.job-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center 
+}
+
+div.job-info > h2 {
+    width: 170px;
+    height: 50px;
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+a {
+    margin: 10px;
+}
+
+.bar-chart {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center
 }
