@@ -1,0 +1,1 @@
+{"version":3,"file":"main.css","mappings":"AAIA,SACI,wBACA,a","sources":["webpack://developer-job-market/./src/styles/example.scss"],"sourcesContent":["// make css variable using dollar sign \r\n\r\n$color: purple;\r\n\r\n#main > h1 {\r\n    border: 4px solid salmon;\r\n    padding: 20px;\r\n}"],"names":[],"sourceRoot":""}

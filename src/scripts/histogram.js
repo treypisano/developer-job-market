@@ -1,27 +1,90 @@
-// this is used to fetch and organize json data
 let testUrl = "http://api.adzuna.com/v1/api/jobs/gb/histogram?app_id=d536b8fb&app_key=6cecd9ddc0c642bdadfba824e14d21e3&location0=UK&location1=London&what=finance%20officer&content-type=application/json"
-import * as d3 from "d3";   
+import * as d3 from "d3";  
+
 // Look like the getch is returning the API object?
+// this is used to fetch and organize json data
 
-class Histogram {
-    static WIDTH = 500
-    static HEIGHT = 500
+export function histoTest() {
+    console.log("Test works")
+} 
 
-    constructor() {
-        this.xValues = null
-        this.yValues = null
-    }
-
-    async getHistogramData() {
-        // this is called in index so promise is made in time   
-        const res = await fetch(testUrl, {method: "GET"})
-        const val = await res.json()
-        return [Object.keys(val.histogram), Object.values(val.histogram)]
-    }
+export function fetchHistoData(url) {
+    fetch(url)
+        .then((response) => {
+            if (response.ok) {
+                return response.json()
+            } else {
+                throw new Error("Something went wrong")
+            }
+        })  
+        .then((data) => {
+            console.log(restructureData(data))
+            makeChart(data)
+        })
+        .catch((error) => {
+            console.error("There was an error", error)
+        })
 }
 
+function makeChart(data) {
+    const numJobs = Object.values(data.histogram)
+    const salary = Object.keys(data.histogram)
+    // debugger    
+    const restructuredData = restructureData(data)
+    
+    const margin = {top: 30, right: 30, bottom: 70, left: 60},
+        width = 460 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
 
+    const svg = d3.select(".bar-chart")
+        .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
 
+    let x = d3.scaleBand()
+        .range([0, width])
+        .domain(salary)
+        .padding(0.2)
+    
+    svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+          .attr("transform", "translate(-10,0)rotate(-45)")
+          .style("text-anchor", "end");
 
+    let y = d3.scaleLinear()
+          .domain([0, Math.max(...numJobs)])
+          .range([ height, 0]);
+        svg.append("g")
+          .call(d3.axisLeft(y));
+    
+    // debugger
+    // console.log(restructureData)
+    svg.selectAll("mybar")
+        .data(restructuredData)
+        .enter()
+        .append("rect")
+            .attr("x", function(d) {return x(d.salary); })
+            .attr("y", function(d) {return y(d.numJobs); })
+            .attr("width", x.bandwidth())
+            .attr("height", function(d) { return height - y(d.numJobs); })
+            .attr("fill", "#69b3a2")
+}
 
-export default Histogram;
+// example obj should be data = [{salary: 10000, numJobs: 120}, {salary: 20000, numJobs: 142}]
+function restructureData(data) {
+    const numJobs = Object.values(data.histogram)
+    const salary = Object.keys(data.histogram)
+    let newArr = []
+
+    for (let i = 0; i < numJobs.length; i++) {
+        let subObj = {"salary": salary[i], "numJobs": numJobs[i]}
+        newArr.push(subObj)
+    }
+
+    return newArr
+}
