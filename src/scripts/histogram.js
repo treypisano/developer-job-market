@@ -1,8 +1,5 @@
-let testUrl = "http://api.adzuna.com/v1/api/jobs/gb/histogram?app_id=d536b8fb&app_key=6cecd9ddc0c642bdadfba824e14d21e3&location0=UK&location1=London&what=finance%20officer&content-type=application/json"
+let testUrl = "https://api.adzuna.com/v1/api/jobs/us/histogram?app_id=d536b8fb&app_key=6cecd9ddc0c642bdadfba824e14d21e3&what=ruby%20on%20rails"
 import * as d3 from "d3";  
-
-// Look like the getch is returning the API object?
-// this is used to fetch and organize json data
 
 export function histoTest() {
     console.log("Test works")
@@ -25,8 +22,6 @@ export function fetchHistoData(url) {
             console.error("There was an error", error)
         })
 }
-
-
 
 export function makeChart(data) {
     const numJobs = Object.values(data.histogram)
@@ -86,3 +81,4 @@ function restructureData(data) { // Convert API call to format d3 can parse
 
     return newArr
 }
+
