@@ -1,4 +1,3 @@
-let testUrl = "https://api.adzuna.com/v1/api/jobs/us/histogram?app_id=d536b8fb&app_key=6cecd9ddc0c642bdadfba824e14d21e3&what=ruby%20on%20rails"
 import * as d3 from "d3";  
 
 export function histoTest() {
@@ -19,7 +18,6 @@ export function fetchHistoData(url) {
             })  
             .then((data) => {
                 localStorage.setItem(url, JSON.stringify(data))
-                console.log((data))
                 makeChart(data)
             })
             .catch((error) => {
