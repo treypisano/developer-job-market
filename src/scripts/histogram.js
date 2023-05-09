@@ -15,7 +15,7 @@ export function fetchHistoData(url) {
             }
         })  
         .then((data) => {
-            console.log((data))
+            // console.log((data))
             makeChart(data)
         })
         .catch((error) => {
