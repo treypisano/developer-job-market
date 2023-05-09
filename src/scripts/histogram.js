@@ -6,21 +6,26 @@ export function histoTest() {
 } 
 
 export function fetchHistoData(url) {
-    fetch(url)
-        .then((response) => {
-            if (response.ok) {
-                return response.json()
-            } else {
-                throw new Error("Something went wrong")
-            }
-        })  
-        .then((data) => {
-            // console.log((data))
-            makeChart(data)
-        })
-        .catch((error) => {
-            console.error("There was an error", error)
-        })
+    if (localStorage.getItem(url)) {
+        makeChart(JSON.parse(localStorage.getItem(url)))
+    } else {
+        fetch(url)
+            .then((response) => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error("Something went wrong")
+                }
+            })  
+            .then((data) => {
+                localStorage.setItem(url, JSON.stringify(data))
+                console.log((data))
+                makeChart(data)
+            })
+            .catch((error) => {
+                console.error("There was an error", error)
+            })
+    }
 }
 
 export function makeChart(data) {
