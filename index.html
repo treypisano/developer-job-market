@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
-    <script src="./dist/main.js"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="./dist/main.js" defer></script>
+    <script src="https://d3js.org/d3.v7.min.js" ></script>
     <title>SWE Job Market</title>
 
   </head>
@@ -20,20 +20,21 @@
       <p class="language-button">Ruby</p>
       <p class="language-button">Python</p>
       <p class="language-button">C++</p>
-      <p class="language-button">C</p>
+      <p class="language-button">Swift</p>
+      <p class="language-button">Javascript</p>
       <p class="language-button">Java</p>
       <p class="language-button">PHP</p>
     </nav>
     <div class="job-info">
       <ul>Average Salary
-        <li>$66,000</li>
+        <li id="salary"></li>
       </ul>
       <ul>Job Openings
-        <li>205</li>
+        <li id="job-openings"></li>
       </ul>
-      <ul>
-        <li>New York, NY</li>
-      </ul>
+      <!-- <ul>
+        <li id="location">New York, NY</li>
+      </ul> -->
     </div>
     <div class= "bar-chart"></div>
     

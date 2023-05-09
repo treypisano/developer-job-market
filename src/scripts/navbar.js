@@ -4,14 +4,18 @@ export default class NavBar {
 
     constructor (navLink) {
         this.navLink = navLink
-        navLink.addEventListener("click", this.clicked)
+        navLink.addEventListener("click", this.clicked.bind(this))
     }
 
     clicked(event) {
-        changeTitle(event.target.innerText)
-        changeJobInfo(event.target.innerText)
+        this.loadInfoBar(event)
+    }
+
+    loadInfoBar(event) {
         deleteOldHisto()
         Histogram.fetchHistoData(makeUrl(event.target.innerText))
+        changeTitle(event.target.innerText)
+        changeJobInfo(event.target.innerText)
     }
 
 }
@@ -49,7 +53,7 @@ function averageSalary(language) {
     let totalJobs = 0
 
     for(let i = 0; i < salary.length; i++) {
-        total += numJobs[i] * salary[i]
+        total += numJobs[i] * (salary[i])
     }
 
     let count = 0;
