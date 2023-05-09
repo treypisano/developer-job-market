@@ -8,16 +8,16 @@ export default class NavBar {
     }
 
     clicked(event) {
-        this.loadInfoBar(event)
+        loadInfoBar(event.target.innerText)
     }
 
-    loadInfoBar(event) {
-        deleteOldHisto()
-        Histogram.fetchHistoData(makeUrl(event.target.innerText))
-        changeTitle(event.target.innerText)
-        changeJobInfo(event.target.innerText)
-    }
+}
 
+export function loadInfoBar(language) {
+    deleteOldHisto()
+    Histogram.fetchHistoData(makeUrl(language))
+    changeTitle(language)
+    changeJobInfo(language)
 }
 
 function makeUrl(language) {
