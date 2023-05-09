@@ -11,19 +11,35 @@
 
 $color: purple;
 
+body {
+    // background-image: url(../src/ripples.png);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 h1 {
+    text-shadow: 1px 1px 1px #ccc;
     color: light-cyan #e0fbfcff;
     display: flex;
     flex-direction: row;
     justify-content: center;
     text-align: center;
-    background-color: #9db4c0ff;
 }
 
 nav {
     display: flex;
     flex-direction: row;
-    justify-content: center
+    justify-content: center;
+    border: solid rgb(196, 187, 187) 1px;
+}
+
+li {
+    margin-top: 5px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+li.fade {
+    opacity: 1;
 }
 
 div.job-info {
@@ -49,7 +65,7 @@ p {
 
 p:hover {
     cursor: pointer;
-    background-color: cadet-gray #9db4c0ff;
+    background-color: cadet-gray rgb(23, 23, 23);
 }
 
 .bar-chart {
@@ -65,4 +81,5 @@ rect {
 
 svg {
     background-color: #c2dfe3ff;
+    border-style: groove;
 }

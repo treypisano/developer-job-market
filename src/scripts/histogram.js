@@ -31,8 +31,8 @@ export function makeChart(data) {
  
     const restructuredData = restructureData(data)
     const margin = {top: 30, right: 30, bottom: 70, left: 60},
-        width = 460 - margin.left - margin.right,
-        height = 400 - margin.top - margin.bottom;
+        width = 500 - margin.left - margin.right,
+        height = 460 - margin.top - margin.bottom;
 
     const svg = d3.select(".bar-chart")
         .append("svg")
@@ -70,6 +70,19 @@ export function makeChart(data) {
             .attr("width", x.bandwidth())
             .attr("height", function(d) { return height - y(d.numJobs); })
             .attr("fill", "#69b3a2")
+
+    svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("x", width - 150)
+        .attr("y", height + 60)
+        .text("Salaries (USD)");
+
+    svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("y", -38)
+        .attr("x", -90)
+        .attr("transform", "rotate(-90)")
+        .text("Number of Job Openings");
 }
 
 function restructureData(data) { // Convert API call to format d3 can parse

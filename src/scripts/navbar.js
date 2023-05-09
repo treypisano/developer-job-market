@@ -27,7 +27,7 @@ function makeUrl(language) {
 
 function deleteOldHisto(){
     const oldHisto = document.querySelector("svg")
-    oldHisto.remove()
+    oldHisto.remove()   
 }
 
 function changeTitle(newTitle) {
@@ -79,3 +79,4 @@ function totalJobs(language) {
 
     return totalJobs
 }
+
