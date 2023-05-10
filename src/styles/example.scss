@@ -59,13 +59,18 @@ div.job-info > ul {
 }
 
 p {
-    color: light-blue #c2dfe3ff;
-    margin: 10px;
+    margin: 0px;
+    padding: 10px;
 }
 
 p:hover {
+    transition: background-color 1s;
+    background-color: rgba(128, 128, 128, 0.409);
     cursor: pointer;
-    background-color: cadet-gray rgb(23, 23, 23);
+}
+
+.x-label {
+    translate: 18px;
 }
 
 .bar-chart {

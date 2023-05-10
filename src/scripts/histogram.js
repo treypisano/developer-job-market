@@ -43,6 +43,16 @@ async function fetchData(url) {
     
 }
 
+export function appendToXAxis (){
+    const newNode = document.createTextNode("test")
+    let text = document.querySelectorAll(".x-label")
+
+    text.forEach((textEle) => {
+        let textAsInt = parseInt(textEle.innerHTML)
+        let topOfRange = textAsInt + 19
+        textEle.appendChild(document.createTextNode(` - ${topOfRange.toString()}`))
+    })
+}
 
 export function makeChart(data) {
     // debugger
@@ -63,16 +73,22 @@ export function makeChart(data) {
 
     let x = d3.scaleBand()
         .range([0, width])
-        .domain(restructuredData.map(function(d) { return d.salary; }))
+        .domain(restructuredData.map(function(d) { return d.salary ; }))
+        .padding(0)
+
+    let xLabel = d3.scaleBand()
+        .range([0, width])
+        .domain(restructuredData.map(function(d) { return d.salary/1000 ; }))
         .padding(0)
     
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x))
+        .call(d3.axisBottom(xLabel))
         .selectAll("text")
-          .attr("transform", "translate(-10,0)rotate(-45)")
+          .attr("class", "x-label")
+          .attr("font-size", 11)
           .style("text-anchor", "end");
-
+ 
     let y = d3.scaleLinear()
           .domain([0, Math.max(...numJobs) ])
           .range([ height, 0]);
@@ -91,9 +107,9 @@ export function makeChart(data) {
 
     svg.append("text")
         .attr("text-anchor", "end")
-        .attr("x", width - 150)
+        .attr("x", width - 100)
         .attr("y", height + 60)
-        .text("Salaries (USD)");
+        .text("Salaries (USD in Thousands)");
 
     svg.append("text")
         .attr("text-anchor", "end")
@@ -109,7 +125,10 @@ export function makeChart(data) {
         .attr("height", function(d) { return height - y(d.numJobs); })
         .delay(function(d,i){return(i*100)});
       
+    appendToXAxis()
 }
+
+
 
 export function updateBar() {
     
