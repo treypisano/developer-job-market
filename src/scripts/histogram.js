@@ -6,24 +6,6 @@ export function histoTest() {
     console.log("Test works")
 } 
 
-// export function fetchHistoData(url) {
-//     fetch(url)
-//         .then((response) => {
-//             if (response.ok) {
-//                 return response.json()
-//             } else {
-//                 throw new Error("Something went wrong")
-//             }
-//         })  
-//         .then((data) => {
-//             makeChart(data)
-
-//         })
-//         .catch((error) => {
-//             console.error("There was an error", error)
-//         }) 
-// }
-
 export function fetchAndSaveHistoData() {
     // this doesnt work with more than 5 languages, try using await chain
     fetchData(makeUrl("Javascript"))
@@ -105,7 +87,6 @@ export function makeChart(data) {
             .attr("x", function(d) {return x(d.salary); })
             .attr("y", function(d) {return y(d.numJobs); })
             .attr("width", x.bandwidth())
-            .attr("height", function(d) { return height - y(d.numJobs); })
             .attr("fill", "#69b3a2")
 
     svg.append("text")
@@ -120,6 +101,14 @@ export function makeChart(data) {
         .attr("x", -90)
         .attr("transform", "rotate(-90)")
         .text("Number of Job Openings");
+
+    svg.selectAll("rect")
+        .transition()
+        .duration(600)
+        .attr("y", function(d) { return y(d.numJobs); })
+        .attr("height", function(d) { return height - y(d.numJobs); })
+        .delay(function(d,i){return(i*100)});
+      
 }
 
 export function updateBar() {

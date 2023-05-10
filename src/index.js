@@ -1,14 +1,12 @@
 import * as d3 from "d3";
 import * as Histogram from "./scripts/histogram"
 import NavBar, { loadInfoBar} from "./scripts/navbar";
-const testUrl = "https://api.adzuna.com/v1/api/jobs/us/histogram?app_id=d536b8fb&app_key=6cecd9ddc0c642bdadfba824e14d21e3&what=Javascript%20developer"
-// debugger
+const homeUrl = "https://api.adzuna.com/v1/api/jobs/us/histogram?app_id=d536b8fb&app_key=6cecd9ddc0c642bdadfba824e14d21e3&what=Javascript%20developer"
+
 makeNavLinksClickable()
 Histogram.fetchAndSaveHistoData()
 
-if (localStorage.getItem(testUrl)) {
-    // debugger
-    // Histogram.makeChart(JSON.parse(localStorage.getItem(testUrl)))
+if (localStorage.getItem(homeUrl)) {
     loadInfoBar("Javascript")
 }    
 
