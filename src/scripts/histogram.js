@@ -40,7 +40,7 @@ async function fetchData(url) {
             console.log("there was an error: ", error)   
         }
     }
-    
+
 }
 
 export function appendToXAxis (){

@@ -45,7 +45,7 @@ function changeJobInfo(language) {
     jobOpenings.innerHTML = `${totalJobs(language)}`
 }
 
-function averageSalary(language) {
+export function averageSalary(language) {
     let url = makeUrl(language)
     let jsonData = JSON.parse(localStorage.getItem(url))
     let numJobs = Object.values(jsonData.histogram)
