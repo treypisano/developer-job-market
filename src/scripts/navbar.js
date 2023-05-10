@@ -15,7 +15,8 @@ export default class NavBar {
 
 export function loadInfoBar(language) {
     deleteOldHisto()
-    Histogram.fetchHistoData(makeUrl(language))
+    let localStorageData = JSON.parse(localStorage.getItem(makeUrl(language)))
+    Histogram.makeChart(localStorageData)
     changeTitle(language)
     changeJobInfo(language)
 }
@@ -27,7 +28,7 @@ function makeUrl(language) {
 
 function deleteOldHisto(){
     const oldHisto = document.querySelector("svg")
-    oldHisto.remove()   
+    if (oldHisto) {oldHisto.remove()} 
 }
 
 function changeTitle(newTitle) {

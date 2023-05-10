@@ -1,32 +1,69 @@
 import * as d3 from "d3";  
+import {loadInfoBar} from "./navbar";
+const testUrl = "https://api.adzuna.com/v1/api/jobs/us/histogram?app_id=d536b8fb&app_key=6cecd9ddc0c642bdadfba824e14d21e3&what=Javascript%20developer"
 
 export function histoTest() {
     console.log("Test works")
 } 
 
-export function fetchHistoData(url) {
-    if (localStorage.getItem(url)) {
-        makeChart(JSON.parse(localStorage.getItem(url)))
-    } else {
-        fetch(url)
-            .then((response) => {
-                if (response.ok) {
-                    return response.json()
-                } else {
-                    throw new Error("Something went wrong")
-                }
-            })  
-            .then((data) => {
-                localStorage.setItem(url, JSON.stringify(data))
-                makeChart(data)
-            })
-            .catch((error) => {
-                console.error("There was an error", error)
-            })
-    }
+// export function fetchHistoData(url) {
+//     fetch(url)
+//         .then((response) => {
+//             if (response.ok) {
+//                 return response.json()
+//             } else {
+//                 throw new Error("Something went wrong")
+//             }
+//         })  
+//         .then((data) => {
+//             makeChart(data)
+
+//         })
+//         .catch((error) => {
+//             console.error("There was an error", error)
+//         }) 
+// }
+
+export function fetchAndSaveHistoData() {
+    // this doesnt work with more than 5 languages, try using await chain
+    fetchData(makeUrl("Javascript"))
+    fetchData(makeUrl("Ruby"))
+    fetchData(makeUrl("Python"))
+    fetchData(makeUrl("Java"))
+    fetchData(makeUrl("C++"))
 }
 
+export function makeUrl(language) {
+    let url = `https://api.adzuna.com/v1/api/jobs/us/histogram?app_id=d536b8fb&app_key=6cecd9ddc0c642bdadfba824e14d21e3&what=${language}%20developer`
+    return url
+}
+
+async function fetchData(url) {
+
+    if (!localStorage.getItem(url)){
+        try {
+            const response = await fetch(url)
+            if (!response.ok) {
+                throw new Error("Network response was not OK")
+            }
+            const jsonData = await response.json()
+            localStorage.setItem(url, JSON.stringify(jsonData))
+
+            if (url === testUrl) {
+                makeChart(jsonData)
+                loadInfoBar("Javascript")
+            }
+            console.log("fetched and saved!")
+        } catch(error) {
+            console.log("there was an error: ", error)   
+        }
+    }
+    
+}
+
+
 export function makeChart(data) {
+    // debugger
     const numJobs = Object.values(data.histogram)
  
     const restructuredData = restructureData(data)
@@ -45,7 +82,7 @@ export function makeChart(data) {
     let x = d3.scaleBand()
         .range([0, width])
         .domain(restructuredData.map(function(d) { return d.salary; }))
-        .padding(0.1)
+        .padding(0)
     
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -83,6 +120,10 @@ export function makeChart(data) {
         .attr("x", -90)
         .attr("transform", "rotate(-90)")
         .text("Number of Job Openings");
+}
+
+export function updateBar() {
+    
 }
 
 function restructureData(data) { // Convert API call to format d3 can parse
