@@ -55,8 +55,14 @@ The above code shows how the data is fetched from the api and parsed. If it has 
 - Clickable redirect to language page
 - On language page, display specific information
 
-Technologies, Libraries, APIs
+# Technologies, Libraries, APIs
 
 - D3 library for graphs/visuals
 - Webpack and Babel to bundle source code
 - npm to direct file structure
+
+# Future Additions
+
+- Language searching functionality/ adding more searchable languages
+- Display job history data over time
+- Display job openings per language
