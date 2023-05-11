@@ -1,10 +1,44 @@
 body {
+    // background: #005AA7;  /* fallback for old browsers */
+    // background: -webkit-linear-gradient(to /right, #FFFDE4, #005AA7);  /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(to right, #b3b3b3, #237ac6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    // -webkit-text-stroke: #414141 1px ;
+    background-color: #ffffff;
+    opacity: 0.8;
+    background-image: radial-gradient(#41414190 0.5px, #ffffff 0.5px);
+    background-size: 10px 10px;
+    font-weight: 500;
+    font-size: 16px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.top-div {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+
+div.top-div > img {
+    display: flex;
+    flex-direction:row;
+    justify-content: right;
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.git-info-link {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+
+img {
+    max-height: 40px;
 }
 
 ul#all-languages {
     background-color: rgba(186, 186, 186, 0.639);
-    padding: 6px;
+    padding: 7px;
     border-radius: 10%;
     border: 2px rgb(104, 104, 104) solid;
 }
@@ -14,11 +48,10 @@ ul#all-languages:hover {
 }
 
 h1 {
+    padding-left: 55px;
     text-shadow: 1px 1px 1px #ccc;
     color: light-cyan #e0fbfcff;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    margin: 0px;
     text-align: center;
 }
 
@@ -26,7 +59,7 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    border: solid rgb(196, 187, 187) 1px;
+    // border: solid rgb(196, 187, 187) 1px;
 }
 
 li {

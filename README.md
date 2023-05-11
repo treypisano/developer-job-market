@@ -66,3 +66,4 @@ The above code shows how the data is fetched from the api and parsed. If it has 
 - Language searching functionality/ adding more searchable languages
 - Display job history data over time
 - Display job openings per language
+- Scale language page more clearly 

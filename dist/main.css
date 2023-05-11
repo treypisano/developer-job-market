@@ -2,12 +2,42 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
 body {
+  background-color: #ffffff;
+  opacity: 0.8;
+  background-image: radial-gradient(rgba(65, 65, 65, 0.5647058824) 0.5px, #ffffff 0.5px);
+  background-size: 10px 10px;
+  font-weight: 500;
+  font-size: 16px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.top-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div.top-div > img {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.git-info-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+img {
+  max-height: 40px;
 }
 
 ul#all-languages {
   background-color: rgba(186, 186, 186, 0.639);
-  padding: 6px;
+  padding: 7px;
   border-radius: 10%;
   border: 2px rgb(104, 104, 104) solid;
 }
@@ -17,11 +47,10 @@ ul#all-languages:hover {
 }
 
 h1 {
+  padding-left: 55px;
   text-shadow: 1px 1px 1px #ccc;
   color: light-cyan #e0fbfc;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  margin: 0px;
   text-align: center;
 }
 
@@ -29,7 +58,6 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  border: solid rgb(196, 187, 187) 1px;
 }
 
 li {
