@@ -11,8 +11,9 @@ Functionality and MVPs
 - Return from language page to home page
 - A production readme
 
-![1-Homepage](https://user-images.githubusercontent.com/126501514/236357116-68693ce4-a8e0-4313-a780-1b9df4e78bfa.png)
-![2-Language-Page](https://user-images.githubusercontent.com/126501514/236357119-8ca3cd8c-a645-4c89-8c94-a583c42b05e8.png)
+
+![image](https://github.com/treypisano/developer-job-market/assets/126501514/e0a0cb15-2334-40be-8d67-c4859297674f)
+![image](https://github.com/treypisano/developer-job-market/assets/126501514/a9275712-59fe-49e0-a03a-412722e984de)
 
 - Nav links to my GitHub, Linkedin
 - A bar chart displaying the frequency of each language
@@ -24,15 +25,3 @@ Technologies, Libraries, APIs
 - D3 library for graphs/visuals
 - Webpack and Babel to bundle source code
 - npm to direct file structure
-
-Implementation Timeline
-
-- Friday Afternoon/Weekend - Decide exactly how to parse API requests. Get a loose frame for the home page. Potentially create the classes for bar/lanugage.
-
-- Monday - Spend more time finalizing the way the data is parsed from the APIs. Start simple animations on the loading of bars. Get started on the frame of the language page. 
-
-- Tuesday - Polish the animations on the main page, and the frame on the first page. Start adding sort by functionality on the home page.
-
-- Wednesday - Make sure the functionality is consistent. Polish up more aesthitic touches like coloring/borders, things that are not central to the functionality.
-
-- Thursday - Put on the finishing touches and upload to Git.
