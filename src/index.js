@@ -1,17 +1,17 @@
 import * as d3 from "d3";
 import * as Histogram from "./scripts/histogram"
 import * as LanguagesBar from "./scripts/languagesbar"
-import NavBar, { loadInfoBar} from "./scripts/navbar";
+import NavBar, { loadInfoBar, deleteOldHisto} from "./scripts/navbar";
 const homeUrl = "https://api.adzuna.com/v1/api/jobs/us/histogram?app_id=d536b8fb&app_key=6cecd9ddc0c642bdadfba824e14d21e3&what=Javascript%20developer"
 
 makeNavLinksClickable()
 Histogram.fetchAndSaveHistoData()
 
-// if (localStorage.getItem(homeUrl)) {
-//     loadInfoBar("Javascript")
-// }    
+if (localStorage.getItem(homeUrl)) {
+    loadInfoBar("Javascript")
+}    
 
-LanguagesBar.makeBarGraph()
+
 
 function makeNavLinksClickable(){
     const navLinks = document.querySelectorAll("p") 
@@ -20,8 +20,19 @@ function makeNavLinksClickable(){
     })
 }
 
-const allLanguagesButton = document.querySelector("#language-button")
-allLanguagesButton.addEventListener("click", this.handleClick.bind(languagesButtonClicked))
+const allLanguagesButton = document.querySelector("#all-languages")
+const jobInfoUl = document.querySelectorAll("ul")
+
+allLanguagesButton.addEventListener("click", event => {
+    deleteOldHisto()
+    jobInfoUl.forEach(ul => {
+        if (ul.id !== "all-languages"){
+            ul.style.opacity = "0"
+        }
+    })
+    document.querySelector("h1").style.opacity = "0"
+    LanguagesBar.makeBarGraph()
+})
 
 // console.log(LanguagesBar.restructureLanguageData())
 

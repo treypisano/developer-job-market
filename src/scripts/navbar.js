@@ -9,6 +9,13 @@ export default class NavBar {
 
     clicked(event) {
         loadInfoBar(event.target.innerText)
+        const jobInfoUl = document.querySelectorAll("ul")
+        jobInfoUl.forEach(ul => {
+            if (ul.id !== "all-languages"){
+                ul.style.opacity = "1"
+            }
+        })
+        document.querySelector("h1").style.opacity = "1"
     }
 
 }
@@ -26,7 +33,7 @@ function makeUrl(language) {
     return url
 }
 
-function deleteOldHisto(){
+export function deleteOldHisto(){
     const oldHisto = document.querySelector("svg")
     if (oldHisto) {oldHisto.remove()} 
 }
