@@ -20,6 +20,8 @@ function makeNavLinksClickable(){
     })
 }
 
+const allLanguagesButton = document.querySelector("#language-button")
+allLanguagesButton.addEventListener("click", this.handleClick.bind(languagesButtonClicked))
 
 // console.log(LanguagesBar.restructureLanguageData())
 

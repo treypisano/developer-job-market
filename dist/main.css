@@ -5,6 +5,16 @@ body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
+ul#all-languages {
+  background-color: rgb(147, 147, 147);
+  padding: 10px;
+  border-radius: 20%;
+}
+
+ul#all-languages:hover {
+  cursor: pointer;
+}
+
 h1 {
   text-shadow: 1px 1px 1px #ccc;
   color: light-cyan #e0fbfc;
@@ -40,8 +50,6 @@ div.job-info {
 
 div.job-info > ul {
   list-style: none;
-  width: 170px;
-  height: 50px;
   text-align: center;
   margin-left: 100px;
   margin-right: 100px;

@@ -51,14 +51,6 @@ export function makeBarGraph() {
             .attr("width", x.bandwidth())
             .attr("fill", "#69b3a2")
 
-
-    // svg.append("text")
-    //     .attr("text-anchor", "end")
-    //     .attr("y", -38)
-    //     .attr("x", -90)
-    //     .attr("transform", "rotate(-90)")
-    //     .text("Salaries (USD in Thousands)");
-
     svg.selectAll("rect")
         .transition()
         .duration(600)
@@ -75,7 +67,7 @@ export function restructureLanguageData() {
 
     languages.forEach(languageElement => {
         let newObj = {}
-        newObj["language"] = languageElement.innerHTML // this goes to local storage
+        newObj["language"] = languageElement.innerHTML 
         newObj["averageSalary"] = averageSalary(languageElement.innerHTML) // this goes to local storage
         restructuredData.push(newObj)
     })
