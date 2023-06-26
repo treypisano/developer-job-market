@@ -21,8 +21,8 @@ div.top-div > img {
   display: flex;
   flex-direction: row;
   justify-content: right;
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 40px;
+  max-height: 40px;
 }
 
 .git-info-link {
@@ -33,6 +33,14 @@ div.top-div > img {
 
 img {
   max-height: 40px;
+}
+
+.info-icon {
+  max-height: 40px;
+}
+
+.info-icon:hover {
+  cursor: pointer;
 }
 
 ul#all-languages {
@@ -89,7 +97,7 @@ p {
   padding: 10px;
 }
 
-p:hover {
+.language-button:hover {
   transition: background-color 1s;
   background-color: rgba(128, 128, 128, 0.409);
   cursor: pointer;
@@ -113,4 +121,28 @@ rect {
 svg {
   background-color: #c2dfe3;
   border-style: groove;
+}
+
+.chart-and-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100%;
+}
+
+.info-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-row: 1;
+  grid-column: 1;
+  /* display: block; */
+}
+
+.info-text {
+  flex-direction: column;
+}
+
+.bar-chart {
+  grid-column: 2;
 }

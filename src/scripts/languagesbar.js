@@ -4,7 +4,7 @@ import * as Histogram from "./histogram"
 export function makeBarGraph() {
     
     const restructuredData = restructureLanguageData()
-    // debugger
+    
     const margin = {top: 30, right: 30, bottom: 70, left: 60},
         width = 500 - margin.left - margin.right,
         height = 460 - margin.top - margin.bottom;
@@ -61,7 +61,7 @@ export function makeBarGraph() {
 }
 
 export function restructureLanguageData() {
-    const languages = document.querySelectorAll("p")
+    const languages = document.querySelectorAll(".language-button")
 
     const restructuredData = []
 

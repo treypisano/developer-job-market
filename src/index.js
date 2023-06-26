@@ -4,6 +4,7 @@ import * as LanguagesBar from "./scripts/languagesbar"
 import NavBar, { loadInfoBar, deleteOldHisto} from "./scripts/navbar";
 const homeUrl = "https://api.adzuna.com/v1/api/jobs/us/histogram?app_id=d536b8fb&app_key=6cecd9ddc0c642bdadfba824e14d21e3&what=Javascript%20developer"
 
+
 makeNavLinksClickable()
 Histogram.fetchAndSaveHistoData()
 
@@ -11,10 +12,8 @@ if (localStorage.getItem(homeUrl)) {
     loadInfoBar("Javascript")
 }    
 
-
-
 function makeNavLinksClickable(){
-    const navLinks = document.querySelectorAll("p") 
+    const navLinks = document.querySelectorAll(".language-button,#all-languages") 
     navLinks.forEach(link => {
         new NavBar(link)
     })
@@ -34,7 +33,16 @@ allLanguagesButton.addEventListener("click", event => {
     LanguagesBar.makeBarGraph()
 })
 
-// console.log(LanguagesBar.restructureLanguageData())
+const infoButton = document.querySelector(".info-icon")
+const infoText = document.getElementsByClassName("info-text")
+
+infoButton.addEventListener("click", event => { // Logic for info button
+    if (infoText[0].style.display === "none") {
+        infoText[0].style.display = "flex"
+    } else {
+        infoText[0].style.display = "none"
+    }
+})
 
 // {
 //     "https://api.adzuna.com/v1/api/jobs/us/histogram?app_id=d536b8fb&app_key=6cecd9ddc0c642bdadfba824e14d21e3&what=Python%20developer": "{\"histogram\":{\"20000\":42,\"40000\":667,\"60000\":48,\"80000\":20,\"100000\":17,\"120000\":53,\"140000\":34},\"__CLASS__\":\"Adzuna::API::Response::SalaryHistogram\"}",
