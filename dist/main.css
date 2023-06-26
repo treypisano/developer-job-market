@@ -66,6 +66,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 li {
@@ -155,6 +156,12 @@ svg {
 .info-text > p {
   padding: 0px;
 }
+
 .bar-chart {
   grid-column: 2;
+}
+
+nav > img {
+  width: 30px;
+  height: 30px;
 }
