@@ -141,11 +141,20 @@ svg {
 
 .info-text {
   flex-direction: column;
-  visibility: hidden;
-  opacity: 0;
+  font-weight: 400;
+  background-color: rgba(134, 134, 134, 0.294);
+  width: 75%;
+  height: 75%;
+  padding: 10px;
+  border-radius: 5px;
+  visibility: hidden; 
+  opacity: 0; 
   transition: visibility 1s, opacity 0.5s linear;
 }
 
+.info-text > p {
+  padding: 0px;
+}
 .bar-chart {
   grid-column: 2;
 }
