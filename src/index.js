@@ -37,10 +37,12 @@ const infoButton = document.querySelector(".info-icon")
 const infoText = document.getElementsByClassName("info-text")
 
 infoButton.addEventListener("click", event => { // Logic for info button
-    if (infoText[0].style.display === "none") {
-        infoText[0].style.display = "flex"
+    if (infoText[0].style.visibility === "visible") {
+        infoText[0].style.visibility = "hidden"
+        infoText[0].style.opacity = 0
     } else {
-        infoText[0].style.display = "none"
+        infoText[0].style.visibility = "visible"
+        infoText[0].style.opacity = 1
     }
 })
 
