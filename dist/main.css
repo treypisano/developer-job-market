@@ -44,14 +44,16 @@ img {
 }
 
 ul#all-languages {
-  background-color: rgba(186, 186, 186, 0.639);
+  margin: 0px;
   padding: 7px;
-  border-radius: 10%;
-  border: 2px rgb(104, 104, 104) solid;
+  background-color: rgb(180, 180, 180);
+  color: rgb(0, 0, 0);
 }
 
 ul#all-languages:hover {
   cursor: pointer;
+  background-color: rgb(117, 117, 117);
+  transition: background-color .5s;
 }
 
 h1 {
@@ -67,6 +69,7 @@ nav {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 li {
@@ -84,6 +87,9 @@ div.job-info {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border-top: 1px solid rgb(166, 166, 166);
+  border-bottom: 1px solid rgb(166, 166, 166);
+  margin-bottom: 10px;
 }
 
 div.job-info > ul {
@@ -164,4 +170,10 @@ svg {
 nav > img {
   width: 30px;
   height: 30px;
+}
+
+#my-name {
+  margin-top: 40px;
+  font-weight: 100;
+  font-size: 14px;
 }
