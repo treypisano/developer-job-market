@@ -154,8 +154,8 @@ svg {
   height: 75%;
   padding: 10px;
   border-radius: 5px;
-  visibility: hidden; 
-  opacity: 0; 
+  /* visibility: "visible";  */
+  opacity: 1; 
   transition: visibility 1s, opacity 0.5s linear;
 }
 
